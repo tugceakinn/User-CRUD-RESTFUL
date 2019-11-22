@@ -45,6 +45,7 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/user")
+	@ResponseStatus(HttpStatus.CREATED)
 	public User handleSaveUser(@Valid @RequestBody User user) throws AlreadyExistException {
 		LOG.debug("[handleSaveUser] User Controller Save User procces started. Params: user ->{}", user);
 		User result = userService.saveUser(user);
